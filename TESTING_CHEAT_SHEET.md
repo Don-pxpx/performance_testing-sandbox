@@ -3,50 +3,121 @@
 
 ---
 
-## 🤖 **AUTOMATION TESTING** (ISTQB Foundation)
+## 🤖 **AUTOMATION TESTING** (ISTQB Test Automation Engineer)
 
-### 📊 **Test Design Techniques**
+### 🏗️ **Test Automation Architecture**
 
-| Technique | 🎯 What It Is | 📝 Example | ✅ When to Use |
-|-----------|---------------|------------|----------------|
-| **Equivalence Partitioning** | Group similar inputs | Age: 0-17, 18-65, 66+ | One test per group |
-| **Boundary Value Analysis** | Test edge values | Min: 0, Max: 100, Min-1: -1, Max+1: 101 | Form limits, ranges |
-| **Decision Table** | All input combos | Login: Valid/Invalid user × Valid/Invalid pass | Complex logic |
-| **State Transition** | Test state changes | Login → Logout → Login | Workflows |
-| **Use Case Testing** | User scenarios | "As user, I want to checkout" | End-to-end flows |
+| Layer | 🎯 Purpose | 🛠️ Components |
+|-------|-----------|----------------|
+| **Test Generation Layer** | Create test cases | Test data, test scripts |
+| **Test Definition Layer** | Define test structure | Test frameworks, BDD specs |
+| **Test Execution Layer** | Run tests | Test runners, CI/CD |
+| **Test Adaptation Layer** | Interface with SUT | Drivers, stubs, mocks |
+| **Testability Layer** | Enable automation | Test hooks, APIs |
 
-### 📈 **Test Levels**
+### 🎨 **Test Automation Frameworks**
+
+| Framework Type | 🎯 Approach | ✅ Pros | 📝 Example |
+|----------------|-------------|---------|------------|
+| **Linear Scripting** | Record & playback | Quick start | Selenium IDE |
+| **Data-Driven** | Separate data from scripts | Reusable, scalable | CSV/JSON test data |
+| **Keyword-Driven** | Keywords = actions | Non-technical friendly | Robot Framework |
+| **Modular** | Reusable modules | Maintainable | Page Object Model |
+| **Hybrid** | Combines approaches | Best of all | POM + Data-Driven |
+
+### 🔧 **Test Automation Design Patterns**
+
+| Pattern | 🎯 Purpose | 📝 Implementation |
+|---------|-----------|-------------------|
+| **Page Object Model (POM)** | Encapsulate page logic | Separate page classes |
+| **Page Factory** | Initialize page objects | @FindBy annotations |
+| **Singleton** | Single instance | Driver management |
+| **Factory** | Create objects | Test data generation |
+| **Builder** | Construct objects | Test scenario building |
+| **Strategy** | Algorithm selection | Different test approaches |
+| **Observer** | Event handling | Test listeners |
+
+### 📊 **Test Automation Lifecycle**
 
 ```
-🔹 Unit Testing        → Test individual functions
-🔹 Integration Testing → Test components together
-🔹 System Testing      → Test entire system
-🔹 Acceptance Testing   → Test user requirements
+1️⃣ Planning        → Define scope, tools, approach
+2️⃣ Design          → Architecture, patterns, framework
+3️⃣ Implementation  → Write scripts, create framework
+4️⃣ Execution       → Run tests, CI/CD integration
+5️⃣ Maintenance     → Update scripts, refactor
+6️⃣ Retirement     → Archive obsolete tests
 ```
 
-### 🎨 **Test Types**
+### 🛠️ **Test Automation Tools**
 
-| Type | 🎯 Purpose | 🛠️ Tools |
-|------|-----------|----------|
-| **Functional** | Does it work? | Playwright, Selenium |
-| **Non-Functional** | How well does it work? | Performance, Security tools |
-| **Structural** | Code coverage | pytest-cov, coverage.py |
-| **Change-Related** | Regression | Test suites |
+| Tool Category | 🎯 Purpose | 🛠️ Examples |
+|---------------|-----------|-------------|
+| **Test Execution** | Run tests | pytest, JUnit, TestNG |
+| **Test Management** | Organize tests | TestRail, Zephyr |
+| **CI/CD Integration** | Automate runs | Jenkins, GitHub Actions |
+| **Reporting** | Test results | Allure, pytest-html |
+| **Code Coverage** | Measure coverage | pytest-cov, JaCoCo |
+| **Mocking/Stubbing** | Isolate components | Mockito, unittest.mock |
 
-### ✅ **Quick Commands**
+### 🔄 **Test Automation Maintenance**
+
+| Activity | 🎯 Purpose | ⚠️ When Needed |
+|----------|-----------|----------------|
+| **Refactoring** | Improve code quality | Code smells detected |
+| **Updating** | Adapt to changes | SUT changes |
+| **Debugging** | Fix failures | Tests failing |
+| **Optimization** | Improve performance | Slow execution |
+| **Version Control** | Track changes | All changes |
+
+### 📈 **Test Automation Metrics**
+
+| Metric | 🎯 What It Shows | ✅ Target |
+|--------|-------------------|-----------|
+| **Automation Coverage** | % tests automated | > 70% |
+| **Test Execution Time** | How fast tests run | < 10 min |
+| **Pass Rate** | % tests passing | > 95% |
+| **Maintenance Effort** | Time to update tests | < 20% of dev time |
+| **ROI** | Return on investment | Positive after 3-6 months |
+| **Flakiness Rate** | % unstable tests | < 5% |
+
+### ✅ **Test Automation Best Practices**
+
+```
+✅ Start with high-value, stable tests
+✅ Use Page Object Model for maintainability
+✅ Separate test data from test logic
+✅ Implement proper wait strategies
+✅ Use meaningful test names
+✅ Keep tests independent
+✅ Clean up test data
+✅ Use version control
+✅ Document framework decisions
+✅ Regular code reviews
+```
+
+### 🚀 **Quick Commands**
 
 ```bash
 # Run all tests
 pytest
 
 # Run with coverage
-pytest --cov=.
+pytest --cov=. --cov-report=html
 
 # Run specific test
-pytest tests/saucedemo/test_login.py
+pytest tests/saucedemo/test_login.py -v
 
 # Run with HTML report
 pytest --html=report.html --self-contained-html
+
+# Run with markers
+pytest -m smoke
+
+# Run in parallel
+pytest -n auto
+
+# Debug test
+pytest --pdb tests/saucedemo/test_login.py
 ```
 
 ---
@@ -225,36 +296,32 @@ python tools/testing/test_dvwa_owasp_top10.py
 
 ## 🎓 **ISTQB QUICK REFERENCE**
 
-### 📘 **Foundation Level Concepts**
+### 📘 **Test Automation Engineer Concepts**
 
 ```
-Test Levels:
-🔹 Unit → Integration → System → Acceptance
+Test Automation Architecture:
+🔹 Test Generation → Test Definition → Test Execution → Test Adaptation → Testability
 
-Test Types:
-🔹 Functional → Non-Functional → Structural → Change-Related
+Framework Types:
+🔹 Linear → Data-Driven → Keyword-Driven → Modular → Hybrid
 
-Test Design:
-🔹 Equivalence Partitioning
-🔹 Boundary Value Analysis
-🔹 Decision Tables
-🔹 State Transition
-🔹 Use Case Testing
+Design Patterns:
+🔹 Page Object Model → Factory → Builder → Strategy → Observer
 
-Test Process:
-1️⃣ Planning → 2️⃣ Design → 3️⃣ Implementation → 4️⃣ Execution → 5️⃣ Reporting
+Test Automation Lifecycle:
+1️⃣ Planning → 2️⃣ Design → 3️⃣ Implementation → 4️⃣ Execution → 5️⃣ Maintenance → 6️⃣ Retirement
 ```
 
-### ✅ **ISTQB Principles**
+### ✅ **ISTQB TAE Principles**
 
 ```
-✅ Testing shows presence of defects
-✅ Exhaustive testing is impossible
-✅ Early testing saves time & money
-✅ Defects cluster together
-✅ Tests wear out (need updates)
-✅ Testing is context dependent
-✅ Absence-of-errors fallacy
+✅ Not all tests should be automated
+✅ Test automation requires maintenance
+✅ Test automation is software development
+✅ Test automation should be treated as a project
+✅ Test automation requires skills and resources
+✅ Test automation should be integrated early
+✅ Test automation ROI improves over time
 ```
 
 ---
