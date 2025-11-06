@@ -1,0 +1,15 @@
+# Core HTTP Libraries
+requests>=2.31.0
+
+# Performance Testing
+locust>=2.20.0
+
+# Utilities
+colorama>=0.4.6
+rich>=13.7.0
+python-dotenv>=1.0.0
+
+# Reporting
+pytest>=8.0.0
+pytest-html>=4.0.0
+

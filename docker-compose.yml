@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # k6 Performance Testing Tool
+  k6:
+    image: grafana/k6:latest
+    container_name: k6-runner
+    volumes:
+      - ./k6:/scripts
+      - ./results:/results
+    networks:
+      - performance-network
+    # Note: k6 container is run on-demand via docker run commands
+    # This service definition allows it to use the same network
+
+  # JMeter Performance Testing Tool
+  jmeter:
+    image: justb4/jmeter:latest
+    container_name: jmeter-runner
+    volumes:
+      - ./jmeter:/scripts
+      - ./results:/results
+    networks:
+      - performance-network
+    # Note: JMeter container is run on-demand via docker run commands
+    # This service definition allows it to use the same network
+
+networks:
+  performance-network:
+    driver: bridge
+
